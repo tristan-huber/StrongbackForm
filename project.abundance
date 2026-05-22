@@ -2818,7 +2818,30 @@
             },
             {
               "name": "Shape 2",
-              "ioValue": null
+              "ioValue": {
+                "geometry": "move-cut-d9e265e0-0-6244b01c-0-0-0-5",
+                "color": "#aad7f2",
+                "tags": [],
+                "bom": [],
+                "plane": {
+                  "origin": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "xDir": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "dimension": "3D"
+              }
             }
           ],
           "unionType": "Fusion"
@@ -5055,6 +5078,11 @@
     }
   ],
   "allConnectors": [
+    {
+      "ap2Name": "remove",
+      "ap1ID": "id-18460",
+      "ap2ID": "id-19076"
+    },
     {
       "ap2Name": "HullVolume",
       "ap1ID": "id-19076",
