@@ -412,8 +412,8 @@
     },
     {
       "atomType": "Molecule",
-      "x": 0.3411458333333333,
-      "y": 0.32857142857142857,
+      "x": 0.3671875,
+      "y": 0.33714285714285713,
       "uniqueID": "id-5823",
       "name": "Strongback",
       "ioValues": [
@@ -476,7 +476,7 @@
         {
           "atomType": "Input",
           "x": 0.025384615384615384,
-          "y": 0.3384615384615385,
+          "y": 0.38285714285714284,
           "uniqueID": "id-5876",
           "name": "PlyThickness"
         },
@@ -605,7 +605,7 @@
         {
           "atomType": "Input",
           "x": 0.025384615384615384,
-          "y": 0.4307692307692308,
+          "y": 0.6657142857142857,
           "uniqueID": "id-13250",
           "name": "StationCount"
         },
@@ -676,7 +676,7 @@
         {
           "atomType": "Input",
           "x": 0.025384615384615384,
-          "y": 0.5230769230769231,
+          "y": 0.5085714285714286,
           "uniqueID": "id-14085",
           "name": "StationPositions",
           "type": "array"
@@ -2853,38 +2853,6 @@
           ]
         },
         {
-          "atomType": "Assembly",
-          "x": 0.5811197916666667,
-          "y": 0.5028571428571428,
-          "uniqueID": "id-5496",
-          "ioValues": [
-            {
-              "name": "Shape 1",
-              "ioValue": null
-            },
-            {
-              "name": "Shape 2",
-              "ioValue": null
-            },
-            {
-              "name": "Shape 3",
-              "ioValue": null
-            },
-            {
-              "name": "Shape 4",
-              "ioValue": null
-            },
-            {
-              "name": "Shape 6",
-              "ioValue": null
-            },
-            {
-              "name": "Shape 7",
-              "ioValue": null
-            }
-          ]
-        },
-        {
           "atomType": "GitHubMolecule",
           "x": 0.16119791666666666,
           "y": 0.14571428571428574,
@@ -3014,8 +2982,8 @@
         },
         {
           "atomType": "GitHubMolecule",
-          "x": 0.547265625,
-          "y": 0.16000000000000003,
+          "x": 0.5442708333333334,
+          "y": 0.24571428571428572,
           "uniqueID": "id-5503",
           "name": "crv.BSpline",
           "topLevel": false,
@@ -3194,7 +3162,7 @@
                 "18.9",
                 "22.22",
                 "21.5",
-                "19"
+                "18.9"
               ]
             },
             {
@@ -3262,7 +3230,7 @@
                     "18.9",
                     "22.22",
                     "21.5",
-                    "19"
+                    "18.9"
                   ]
                 },
                 {
@@ -4294,7 +4262,7 @@
                 "15.125",
                 "19.25",
                 "19.075",
-                "16"
+                "15.9"
               ]
             },
             {
@@ -4362,7 +4330,7 @@
                     "15.125",
                     "19.25",
                     "19.075",
-                    "16"
+                    "15.9"
                   ]
                 },
                 {
@@ -4827,10 +4795,30 @@
           "lastReloadedFromGithubAt": 1778703552243
         },
         {
+          "atomType": "Assembly",
+          "x": 0.6184895833333334,
+          "y": 0.6371428571428571,
+          "uniqueID": "id-18437",
+          "ioValues": [
+            {
+              "name": "Shape 1",
+              "ioValue": null
+            },
+            {
+              "name": "Shape 2",
+              "ioValue": null
+            },
+            {
+              "name": "Shape 3",
+              "ioValue": null
+            }
+          ]
+        },
+        {
           "atomType": "GitHubMolecule",
           "x": 0.41640625,
           "y": 0.08857142857142856,
-          "uniqueID": "id-5577",
+          "uniqueID": "id-18448",
           "name": "crv.BSpline",
           "ioValues": [
             {
@@ -4848,7 +4836,7 @@
               "atomType": "Output",
               "x": 0.98,
               "y": 0.5,
-              "uniqueID": "id-5578",
+              "uniqueID": "id-18444",
               "ioValues": [
                 {
                   "name": "number or geometry",
@@ -4860,7 +4848,7 @@
               "atomType": "Code",
               "x": 0.4296875,
               "y": 0.6514285714285714,
-              "uniqueID": "id-5579",
+              "uniqueID": "id-18445",
               "ioValues": [
                 {
                   "name": "points",
@@ -4879,7 +4867,7 @@
               "atomType": "Input",
               "x": 0.025384615384615384,
               "y": 0.15384615384615385,
-              "uniqueID": "id-5580",
+              "uniqueID": "id-18446",
               "name": "Points",
               "type": "geometry"
             },
@@ -4887,7 +4875,7 @@
               "atomType": "Input",
               "x": 0.025384615384615384,
               "y": 0.24615384615384617,
-              "uniqueID": "id-5581",
+              "uniqueID": "id-18447",
               "name": "close",
               "type": "boolean"
             }
@@ -4895,18 +4883,18 @@
           "allConnectors": [
             {
               "ap2Name": "number or geometry",
-              "ap1ID": "id-5579",
-              "ap2ID": "id-5578"
+              "ap1ID": "id-18445",
+              "ap2ID": "id-18444"
             },
             {
               "ap2Name": "points",
-              "ap1ID": "id-5580",
-              "ap2ID": "id-5579"
+              "ap1ID": "id-18446",
+              "ap2ID": "id-18445"
             },
             {
               "ap2Name": "close",
-              "ap1ID": "id-5581",
-              "ap2ID": "id-5579"
+              "ap1ID": "id-18447",
+              "ap2ID": "id-18445"
             }
           ],
           "parentRepo": {
@@ -4934,34 +4922,24 @@
           },
           "unitsKey": "Unitless",
           "fileTypeVersion": 1,
-          "lastReloadedFromGithubAt": 1778712144665
+          "lastReloadedFromGithubAt": 1779474356335
         }
       ],
       "allConnectors": [
-        {
-          "ap2Name": "number or geometry",
-          "ap1ID": "id-5496",
-          "ap2ID": "id-5494"
-        },
         {
           "ap2Name": "toMove",
           "ap1ID": "id-5497",
           "ap2ID": "id-5566"
         },
         {
-          "ap2Name": "Shape 6",
+          "ap2Name": "Shape 2",
           "ap1ID": "id-5503",
-          "ap2ID": "id-5496"
+          "ap2ID": "id-18437"
         },
         {
           "ap2Name": "Shape 3",
           "ap1ID": "id-5507",
-          "ap2ID": "id-5496"
-        },
-        {
-          "ap2Name": "Shape 4",
-          "ap1ID": "id-5511",
-          "ap2ID": "id-5496"
+          "ap2ID": "id-18437"
         },
         {
           "ap2Name": "Input",
@@ -4969,14 +4947,9 @@
           "ap2ID": "id-5503"
         },
         {
-          "ap2Name": "Shape 1",
-          "ap1ID": "id-5522",
-          "ap2ID": "id-5496"
-        },
-        {
           "ap2Name": "Points",
           "ap1ID": "id-5522",
-          "ap2ID": "id-5577"
+          "ap2ID": "id-18448"
         },
         {
           "ap2Name": "toMove",
@@ -4987,11 +4960,6 @@
           "ap2Name": "toMove",
           "ap1ID": "id-5544",
           "ap2ID": "id-5555"
-        },
-        {
-          "ap2Name": "Shape 7",
-          "ap1ID": "id-5555",
-          "ap2ID": "id-5496"
         },
         {
           "ap2Name": "Input",
@@ -5014,9 +4982,14 @@
           "ap2ID": "id-5544"
         },
         {
-          "ap2Name": "Shape 2",
-          "ap1ID": "id-5577",
-          "ap2ID": "id-5496"
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-18437",
+          "ap2ID": "id-5494"
+        },
+        {
+          "ap2Name": "Shape 1",
+          "ap1ID": "id-18448",
+          "ap2ID": "id-18437"
         }
       ],
       "fileTypeVersion": 1
