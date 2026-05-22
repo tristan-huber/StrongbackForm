@@ -44,8 +44,8 @@
     },
     {
       "atomType": "Code",
-      "x": 0.36067708333333337,
-      "y": 0.6457142857142857,
+      "x": 0.34505208333333337,
+      "y": 0.6228571428571429,
       "uniqueID": "id-18460",
       "ioValues": [
         {
@@ -2779,7 +2779,7 @@
             {
               "name": "Shape 2",
               "ioValue": {
-                "geometry": "move-16ef2020-0-0-0-5",
+                "geometry": "move-cut-16ef2020-0-e67a23a0-0-0-0-5",
                 "color": "#aad7f2",
                 "tags": [],
                 "bom": [],
@@ -5035,18 +5035,39 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Difference",
+      "x": 0.46223958333333337,
+      "y": 0.5657142857142857,
+      "uniqueID": "id-19076",
+      "ioValues": [
+        {
+          "name": "retain",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "remove",
+          "ioValue": "__GEOMETRY_INPUT__"
+        }
+      ]
     }
   ],
   "allConnectors": [
     {
-      "ap2Name": "HullVolume",
-      "ap1ID": "id-12247",
-      "ap2ID": "id-5823"
+      "ap2Name": "remove",
+      "ap1ID": "id-18460",
+      "ap2ID": "id-19076"
     },
     {
       "ap2Name": "geom",
       "ap1ID": "id-12247",
       "ap2ID": "id-18460"
+    },
+    {
+      "ap2Name": "retain",
+      "ap1ID": "id-12247",
+      "ap2ID": "id-19076"
     },
     {
       "ap2Name": "Lines",
@@ -5057,6 +5078,11 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-5823",
       "ap2ID": "id-997"
+    },
+    {
+      "ap2Name": "HullVolume",
+      "ap1ID": "id-19076",
+      "ap2ID": "id-5823"
     }
   ],
   "unitsKey": "Inches",
