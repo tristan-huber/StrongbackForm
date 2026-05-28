@@ -158,8 +158,8 @@
     },
     {
       "atomType": "Extrude",
-      "x": 0.4635416666666667,
-      "y": 0.7142857142857143,
+      "x": 0.5182291666666667,
+      "y": 0.7599999999999999,
       "uniqueID": "id-20432",
       "ioValues": [
         {
@@ -2704,8 +2704,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.2721354166666667,
-      "y": 0.5114285714285715,
+      "x": 0.24088541666666666,
+      "y": 0.6285714285714286,
       "uniqueID": "id-20375",
       "name": "util.ProjectBoundaryXY",
       "ioValues": [
@@ -2951,7 +2951,7 @@
             {
               "name": "Shape 1",
               "ioValue": {
-                "geometry": "f8f84930-0",
+                "geometry": "f4e38964-0",
                 "color": "#aad7f2",
                 "tags": [],
                 "bom": [],
@@ -5647,8 +5647,8 @@
     },
     {
       "atomType": "Molecule",
-      "x": 0.18294270833333331,
-      "y": 0.6285714285714286,
+      "x": 0.14518229166666666,
+      "y": 0.8257142857142857,
       "uniqueID": "id-21144",
       "name": "HullMinusThickness",
       "ioValues": [
@@ -5839,6 +5839,30 @@
           "unitsKey": "Unitless",
           "fileTypeVersion": 1,
           "lastReloadedFromGithubAt": 1780007349011
+        },
+        {
+          "atomType": "Rotate",
+          "x": 0.5677083333333333,
+          "y": 0.6,
+          "uniqueID": "id-21215",
+          "ioValues": [
+            {
+              "name": "geometry",
+              "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "x-axis degrees",
+              "ioValue": 180
+            },
+            {
+              "name": "y-axis degrees",
+              "ioValue": 0
+            },
+            {
+              "name": "z-axis degrees",
+              "ioValue": 0
+            }
+          ]
         }
       ],
       "allConnectors": [
@@ -5853,9 +5877,9 @@
           "ap2ID": "id-21197"
         },
         {
-          "ap2Name": "number or geometry",
+          "ap2Name": "geometry",
           "ap1ID": "id-21154",
-          "ap2ID": "id-21146"
+          "ap2ID": "id-21215"
         },
         {
           "ap2Name": "geometry",
@@ -5871,6 +5895,11 @@
           "ap2Name": "remove",
           "ap1ID": "id-21197",
           "ap2ID": "id-21154"
+        },
+        {
+          "ap2Name": "number or geometry",
+          "ap1ID": "id-21215",
+          "ap2ID": "id-21146"
         }
       ],
       "fileTypeVersion": 1
@@ -5908,11 +5937,6 @@
       "ap2ID": "id-19710"
     },
     {
-      "ap2Name": "Input",
-      "ap1ID": "id-12247",
-      "ap2ID": "id-20375"
-    },
-    {
       "ap2Name": "HullShape",
       "ap1ID": "id-12247",
       "ap2ID": "id-21144"
@@ -5931,6 +5955,11 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-5823",
       "ap2ID": "id-997"
+    },
+    {
+      "ap2Name": "Input",
+      "ap1ID": "id-21144",
+      "ap2ID": "id-20375"
     }
   ],
   "unitsKey": "Inches",
