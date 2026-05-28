@@ -12,6 +12,16 @@
     {
       "name": "SternDist",
       "ioValue": 10
+    },
+    {
+      "name": "StationPositions",
+      "ioValue": [
+        "-47.25",
+        "-24",
+        "0",
+        "24",
+        "47.125"
+      ]
     }
   ],
   "topLevel": true,
@@ -44,8 +54,8 @@
     },
     {
       "atomType": "Code",
-      "x": 0.31640625,
-      "y": 0.20857142857142857,
+      "x": 0.3723958333333333,
+      "y": 0.7257142857142858,
       "uniqueID": "id-18460",
       "ioValues": [
         {
@@ -78,88 +88,9 @@
       ]
     },
     {
-      "atomType": "Code",
-      "x": 0.45703124999999994,
-      "y": 0.23142857142857146,
-      "uniqueID": "id-19710",
-      "ioValues": [
-        {
-          "name": "input",
-          "ioValue": "__GEOMETRY_INPUT__"
-        }
-      ],
-      "interpreterVersion": 1,
-      "code": "/**\n * Projects the perimeter of every leaf in an Assembly tree onto the XY plane\n * (top-down view) and returns a matching Assembly tree of 2-D Drawings.\n *\n * @param input  Any Assembly (single leaf or nested tree) to project.\n * @returns      A mirrored Assembly tree where each leaf is a 2-D Drawing\n *               of the visible silhouette from above.\n */\nfunction run(input: Assembly) {\n  // Deep-copy the input so we don't mutate the upstream assembly.\n  let result = new Assembly(input);\n\n  result = result.onLeafs((leaf) => {\n    // Project this leaf's solid onto the XY plane (looking down -Z).\n    if (!leaf.is3D()) {\n      return leaf;\n    }\n    const projection = replicad.drawProjection(leaf.geometry as replicad.Shape3D, \"XY\");\n\n    // Build a new leaf Assembly with the 2-D drawing, preserving\n    // the original leaf's color, tags, and BOM entries.\n    const projected = new Assembly<LeafGeom>({\n      geometry: projection.visible,\n      color: leaf.color,\n      tags: leaf.tags,\n      bom: leaf.bom,\n      plane: new replicad.Plane(\"XY\")\n    });\n\n    return projected;\n  });\n\n  return result;\n}",
-      "compiledCode": "\"use strict\";\n/**\n * Projects the perimeter of every leaf in an Assembly tree onto the XY plane\n * (top-down view) and returns a matching Assembly tree of 2-D Drawings.\n *\n * @param input  Any Assembly (single leaf or nested tree) to project.\n * @returns      A mirrored Assembly tree where each leaf is a 2-D Drawing\n *               of the visible silhouette from above.\n */\nfunction run(input) {\n    // Deep-copy the input so we don't mutate the upstream assembly.\n    let result = new Assembly(input);\n    result = result.onLeafs((leaf) => {\n        // Project this leaf's solid onto the XY plane (looking down -Z).\n        if (!leaf.is3D()) {\n            return leaf;\n        }\n        const projection = replicad.drawProjection(leaf.geometry, \"XY\");\n        // Build a new leaf Assembly with the 2-D drawing, preserving\n        // the original leaf's color, tags, and BOM entries.\n        const projected = new Assembly({\n            geometry: projection.visible,\n            color: leaf.color,\n            tags: leaf.tags,\n            bom: leaf.bom,\n            plane: new replicad.Plane(\"XY\")\n        });\n        return projected;\n    });\n    return result;\n}\n"
-    },
-    {
       "atomType": "Extrude",
-      "x": 0.7063802083333334,
-      "y": 0.64,
-      "uniqueID": "id-19720",
-      "ioValues": [
-        {
-          "name": "geometry",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "height",
-          "ioValue": 10
-        }
-      ]
-    },
-    {
-      "atomType": "ShrinkWrap",
-      "x": 0.6028645833333334,
-      "y": 0.42,
-      "uniqueID": "id-19724",
-      "name": "Shrink Wrap",
-      "ioValues": [
-        {
-          "name": "Shape 1",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Shape 2",
-          "ioValue": "__GEOMETRY_INPUT__"
-        },
-        {
-          "name": "Shape 1",
-          "ioValue": {
-            "geometry": "f4aa19e0-0",
-            "color": "#aad7f2",
-            "tags": [],
-            "bom": [],
-            "plane": {
-              "origin": [
-                0,
-                0,
-                0
-              ],
-              "xDir": [
-                1,
-                0,
-                0
-              ],
-              "normal": [
-                0,
-                0,
-                1
-              ]
-            },
-            "dimension": "2D"
-          }
-        },
-        {
-          "name": "Shape 2",
-          "ioValue": "__GEOMETRY_INPUT__"
-        }
-      ]
-    },
-    {
-      "atomType": "Extrude",
-      "x": 0.5182291666666667,
-      "y": 0.7599999999999999,
+      "x": 0.5260416666666667,
+      "y": 0.8171428571428572,
       "uniqueID": "id-20432",
       "ioValues": [
         {
@@ -2704,8 +2635,8 @@
     },
     {
       "atomType": "GitHubMolecule",
-      "x": 0.24088541666666666,
-      "y": 0.6285714285714286,
+      "x": 0.17057291666666666,
+      "y": 0.822857142857143,
       "uniqueID": "id-20375",
       "name": "util.ProjectBoundaryXY",
       "ioValues": [
@@ -3230,8 +3161,8 @@
     },
     {
       "atomType": "Molecule",
-      "x": 0.58203125,
-      "y": 0.12,
+      "x": 0.4700520833333333,
+      "y": 0.2542857142857143,
       "uniqueID": "id-5823",
       "name": "Strongback",
       "ioValues": [
@@ -3415,7 +3346,30 @@
             },
             {
               "name": "Shape 2",
-              "ioValue": null
+              "ioValue": {
+                "geometry": "move-rotate-cut-rotate-af5c7090-0-180-0-0-e21bb948-0-180-0-0-0-0-5",
+                "color": "#aad7f2",
+                "tags": [],
+                "bom": [],
+                "plane": {
+                  "origin": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "xDir": [
+                    1,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    0,
+                    0,
+                    1
+                  ]
+                },
+                "dimension": "3D"
+              }
             }
           ],
           "unionType": "Fusion"
@@ -3490,14 +3444,6 @@
               "ioValue": -5
             }
           ]
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.5230769230769231,
-          "uniqueID": "id-14085",
-          "name": "StationPositions",
-          "type": "array"
         },
         {
           "atomType": "Code",
@@ -3890,8 +3836,8 @@
         },
         {
           "atomType": "Molecule",
-          "x": 0.24609375,
-          "y": 0.6857142857142857,
+          "x": 0.24674479166666666,
+          "y": 0.6685714285714286,
           "uniqueID": "id-9275",
           "name": "Cross Sections",
           "ioValues": [
@@ -5564,6 +5510,14 @@
             }
           ],
           "fileTypeVersion": 1
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.6,
+          "uniqueID": "id-21224",
+          "name": "StationPositions",
+          "type": "array"
         }
       ],
       "allConnectors": [
@@ -5628,11 +5582,6 @@
           "ap2ID": "id-5825"
         },
         {
-          "ap2Name": "StationPositions",
-          "ap1ID": "id-14085",
-          "ap2ID": "id-9275"
-        },
-        {
           "ap2Name": "geometry",
           "ap1ID": "id-6592",
           "ap2ID": "id-6648"
@@ -5641,14 +5590,19 @@
           "ap2Name": "geometry1",
           "ap1ID": "id-9275",
           "ap2ID": "id-9267"
+        },
+        {
+          "ap2Name": "StationPositions",
+          "ap1ID": "id-21224",
+          "ap2ID": "id-9275"
         }
       ],
       "fileTypeVersion": 1
     },
     {
       "atomType": "Molecule",
-      "x": 0.14518229166666666,
-      "y": 0.8257142857142857,
+      "x": 0.19140625000000003,
+      "y": 0.43999999999999995,
       "uniqueID": "id-21144",
       "name": "HullMinusThickness",
       "ioValues": [
@@ -5903,6 +5857,21 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.7685714285714286,
+      "uniqueID": "id-21221",
+      "name": "StationPositions",
+      "type": "array",
+      "options": [
+        "-47.25",
+        "-24",
+        "0",
+        "24",
+        "47.125"
+      ]
     }
   ],
   "allConnectors": [
@@ -5912,29 +5881,9 @@
       "ap2ID": "id-19076"
     },
     {
-      "ap2Name": "HullVolume",
-      "ap1ID": "id-19076",
-      "ap2ID": "id-5823"
-    },
-    {
-      "ap2Name": "Shape 1",
-      "ap1ID": "id-19710",
-      "ap2ID": "id-19724"
-    },
-    {
-      "ap2Name": "geometry",
-      "ap1ID": "id-19724",
-      "ap2ID": "id-19720"
-    },
-    {
       "ap2Name": "retain",
       "ap1ID": "id-12247",
       "ap2ID": "id-19076"
-    },
-    {
-      "ap2Name": "input",
-      "ap1ID": "id-12247",
-      "ap2ID": "id-19710"
     },
     {
       "ap2Name": "HullShape",
@@ -5960,6 +5909,16 @@
       "ap2Name": "Input",
       "ap1ID": "id-21144",
       "ap2ID": "id-20375"
+    },
+    {
+      "ap2Name": "HullVolume",
+      "ap1ID": "id-21144",
+      "ap2ID": "id-5823"
+    },
+    {
+      "ap2Name": "StationPositions",
+      "ap1ID": "id-21221",
+      "ap2ID": "id-5823"
     }
   ],
   "unitsKey": "Inches",
