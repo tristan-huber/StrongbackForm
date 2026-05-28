@@ -2819,7 +2819,7 @@
             {
               "name": "Shape 2",
               "ioValue": {
-                "geometry": "move-cut-d9e265e0-0-6244b01c-0-0-0-5",
+                "geometry": "move-cut-af5c7090-0-350dc8b7-0-0-0-5",
                 "color": "#aad7f2",
                 "tags": [],
                 "bom": [],
@@ -5062,11 +5062,6 @@
           "ap2Name": "geometry",
           "ap1ID": "id-6592",
           "ap2ID": "id-6648"
-        },
-        {
-          "ap2Name": "toMove",
-          "ap1ID": "id-9275",
-          "ap2ID": "id-14141"
         },
         {
           "ap2Name": "geometry1",
