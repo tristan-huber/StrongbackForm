@@ -28,7 +28,7 @@
       "ioValue": 0.25
     },
     {
-      "name": "Hull_Shape",
+      "name": "Input",
       "ioValue": "__GEOMETRY_INPUT__"
     }
   ],
@@ -100,20 +100,6 @@
       "y": 0.4307692307692308,
       "uniqueID": "id-24571",
       "name": "HullMaterialThickness"
-    },
-    {
-      "atomType": "Input",
-      "x": 0.025384615384615384,
-      "y": 0.5230769230769231,
-      "uniqueID": "id-25258",
-      "name": "Hull_Shape",
-      "type": "import",
-      "fileName": "ToroHull.stl",
-      "fileSha": null,
-      "fileType": "STL",
-      "repoOwner": null,
-      "repoName": null,
-      "SVGwidth": 10
     },
     {
       "atomType": "Molecule",
@@ -5636,6 +5622,74 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Move",
+      "x": 0.5,
+      "y": 0.5,
+      "uniqueID": "id-25945",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "xDist",
+          "ioValue": 50,
+          "currentEquation": "50"
+        },
+        {
+          "name": "yDist",
+          "ioValue": 0
+        },
+        {
+          "name": "zDist",
+          "ioValue": 0
+        }
+      ]
+    },
+    {
+      "atomType": "Export",
+      "x": 0.24869791666666669,
+      "y": 0.8114285714285715,
+      "uniqueID": "id-25951",
+      "ioValues": [
+        {
+          "name": "geometry",
+          "ioValue": "__GEOMETRY_INPUT__"
+        },
+        {
+          "name": "File Type",
+          "ioValue": "STEP",
+          "currentEquation": "STEP"
+        },
+        {
+          "name": "Resolution (dpi)",
+          "ioValue": 96
+        },
+        {
+          "name": "Part Name",
+          "ioValue": "ToroHullStep",
+          "currentEquation": "ToroHullStep"
+        }
+      ],
+      "type": "STEP",
+      "resolution": 96,
+      "importIndex": 0,
+      "partName": "ToroHullStep"
+    },
+    {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.5230769230769231,
+      "uniqueID": "id-25958",
+      "type": "import",
+      "fileName": null,
+      "fileSha": null,
+      "fileType": "STEP",
+      "repoOwner": null,
+      "repoName": null,
+      "SVGwidth": 10
     }
   ],
   "allConnectors": [
@@ -5650,9 +5704,14 @@
       "ap2ID": "id-21144"
     },
     {
-      "ap2Name": "HullShape",
-      "ap1ID": "id-25258",
-      "ap2ID": "id-21144"
+      "ap2Name": "geometry",
+      "ap1ID": "id-12247",
+      "ap2ID": "id-25945"
+    },
+    {
+      "ap2Name": "geometry",
+      "ap1ID": "id-12247",
+      "ap2ID": "id-25951"
     },
     {
       "ap2Name": "Lines",
@@ -5668,6 +5727,11 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-5823",
       "ap2ID": "id-997"
+    },
+    {
+      "ap2Name": "HullShape",
+      "ap1ID": "id-25958",
+      "ap2ID": "id-21144"
     }
   ],
   "unitsKey": "Inches",
