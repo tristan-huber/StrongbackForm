@@ -26,6 +26,10 @@
     {
       "name": "HullMaterialThickness",
       "ioValue": 0.25
+    },
+    {
+      "name": "Hull_Shape",
+      "ioValue": "__GEOMETRY_INPUT__"
     }
   ],
   "topLevel": true,
@@ -5620,13 +5624,17 @@
       "fileTypeVersion": 1
     },
     {
-      "atomType": "Import",
-      "x": 0.07421875,
-      "y": 0.7371428571428572,
-      "uniqueID": "id-25256",
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.72,
+      "uniqueID": "id-25258",
+      "name": "Hull_Shape",
+      "type": "import",
       "fileName": null,
-      "name": "Import",
-      "type": null,
+      "fileSha": null,
+      "fileType": null,
+      "repoOwner": null,
+      "repoName": null,
       "SVGwidth": 10
     }
   ],
@@ -5639,11 +5647,6 @@
     {
       "ap2Name": "hullThickness",
       "ap1ID": "id-24571",
-      "ap2ID": "id-21144"
-    },
-    {
-      "ap2Name": "HullShape",
-      "ap1ID": "id-12247",
       "ap2ID": "id-21144"
     },
     {
@@ -5660,6 +5663,11 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-5823",
       "ap2ID": "id-997"
+    },
+    {
+      "ap2Name": "HullShape",
+      "ap1ID": "id-25258",
+      "ap2ID": "id-21144"
     }
   ],
   "unitsKey": "Inches",

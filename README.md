@@ -10,6 +10,7 @@
 - **SternDist** (number)
 - **StationPositions** (array)
 - **HullMaterialThickness** (number)
+- **Hull_Shape** (geometry)
 
 
 
