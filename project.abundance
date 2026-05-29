@@ -108,7 +108,7 @@
       "uniqueID": "id-25258",
       "name": "Hull_Shape",
       "type": "import",
-      "fileName": null,
+      "fileName": "ToroHull.stl",
       "fileSha": null,
       "fileType": "STL",
       "repoOwner": null,
