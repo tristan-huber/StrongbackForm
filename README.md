@@ -9,6 +9,7 @@
 - **BowDist** (number)
 - **SternDist** (number)
 - **StationPositions** (array)
+- **HullMaterialThickness** (number)
 
 
 
