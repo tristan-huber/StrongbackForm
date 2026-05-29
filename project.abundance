@@ -104,7 +104,7 @@
     {
       "atomType": "Input",
       "x": 0.025384615384615384,
-      "y": 0.5230769230769231,
+      "y": 0.6371428571428571,
       "uniqueID": "id-25258",
       "name": "Hull_Shape",
       "type": "import",
@@ -2682,8 +2682,8 @@
     },
     {
       "atomType": "Molecule",
-      "x": 0.22981770833333331,
-      "y": 0.8,
+      "x": 0.265625,
+      "y": 0.43999999999999995,
       "uniqueID": "id-21144",
       "name": "HullMinusThickness",
       "ioValues": [
@@ -5636,6 +5636,18 @@
         }
       ],
       "fileTypeVersion": 1
+    },
+    {
+      "atomType": "Import",
+      "x": 0.19856770833333331,
+      "y": 0.6914285714285714,
+      "uniqueID": "id-25945",
+      "fileName": "ToroHull.stl",
+      "name": "Import",
+      "type": "STL",
+      "repoOwner": "tristan-huber",
+      "repoName": "StrongbackForm",
+      "SVGwidth": 10
     }
   ],
   "allConnectors": [
