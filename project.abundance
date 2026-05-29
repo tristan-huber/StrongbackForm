@@ -3448,14 +3448,6 @@
           "ioValue": 112
         },
         {
-          "name": "PlyThickness",
-          "ioValue": 0.75
-        },
-        {
-          "name": "StationCount",
-          "ioValue": 5
-        },
-        {
           "name": "StationPositions",
           "ioValue": [
             "-47.25",
@@ -3464,6 +3456,10 @@
             "24",
             "47.125"
           ]
+        },
+        {
+          "name": "PlyThickness",
+          "ioValue": 10
         }
       ],
       "topLevel": false,
@@ -3494,13 +3490,6 @@
           "y": 0.24615384615384617,
           "uniqueID": "id-5869",
           "name": "Length"
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.3384615384615385,
-          "uniqueID": "id-5876",
-          "name": "PlyThickness"
         },
         {
           "atomType": "Move",
@@ -3552,133 +3541,6 @@
           "value": 10
         },
         {
-          "atomType": "Rectangle",
-          "x": 0.19596354166666669,
-          "y": 0.5428571428571428,
-          "uniqueID": "id-11300",
-          "ioValues": [
-            {
-              "name": "x length",
-              "ioValue": 112,
-              "currentEquation": "Length"
-            },
-            {
-              "name": "y length",
-              "ioValue": 10
-            }
-          ]
-        },
-        {
-          "atomType": "Extrude",
-          "x": 0.4427083333333333,
-          "y": 0.6485714285714286,
-          "uniqueID": "id-11304",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "height",
-              "ioValue": 15
-            }
-          ]
-        },
-        {
-          "atomType": "Fusion",
-          "x": 0.58203125,
-          "y": 0.5742857142857143,
-          "uniqueID": "id-11314",
-          "ioValues": [
-            {
-              "name": "Shape 1",
-              "ioValue": {
-                "geometry": "extrude-rectangle-112-10-{\"origin\":[0,0,0],\"xDir\":[1,0,0],\"normal\":[0,0,1]}-15",
-                "dimension": "3D",
-                "plane": {
-                  "origin": [
-                    0,
-                    0,
-                    0
-                  ],
-                  "xDir": [
-                    1,
-                    0,
-                    0
-                  ],
-                  "normal": [
-                    0,
-                    0,
-                    1
-                  ]
-                },
-                "color": "#aad7f2",
-                "tags": [],
-                "bom": []
-              }
-            },
-            {
-              "name": "Shape 2",
-              "ioValue": {
-                "geometry": "move-rotate-cut-rotate-af5c7090-0-180-0-0-e21bb948-0-180-0-0-0-0-5",
-                "color": "#aad7f2",
-                "tags": [],
-                "bom": [],
-                "plane": {
-                  "origin": [
-                    0,
-                    0,
-                    0
-                  ],
-                  "xDir": [
-                    1,
-                    0,
-                    0
-                  ],
-                  "normal": [
-                    0,
-                    0,
-                    1
-                  ]
-                },
-                "dimension": "3D"
-              }
-            }
-          ],
-          "unionType": "Fusion"
-        },
-        {
-          "atomType": "Input",
-          "x": 0.025384615384615384,
-          "y": 0.4307692307692308,
-          "uniqueID": "id-13250",
-          "name": "StationCount"
-        },
-        {
-          "atomType": "Move",
-          "x": 0.15234375,
-          "y": 0.22571428571428573,
-          "uniqueID": "id-13259",
-          "ioValues": [
-            {
-              "name": "geometry",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "xDist",
-              "ioValue": 0
-            },
-            {
-              "name": "yDist",
-              "ioValue": 0
-            },
-            {
-              "name": "zDist",
-              "ioValue": 5
-            }
-          ]
-        },
-        {
           "atomType": "Assembly",
           "x": 0.6412760416666666,
           "y": 0.6742857142857143,
@@ -3719,25 +3581,6 @@
           ]
         },
         {
-          "atomType": "Code",
-          "x": 0.5852864583333333,
-          "y": 0.8742857142857143,
-          "uniqueID": "id-14141",
-          "ioValues": [
-            {
-              "name": "basis",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "toMove",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ],
-          "interpreterVersion": 1,
-          "code": "\n/**\n * =========================================================================\n *  ABUNDANCE CODE ATOM — Quick Reference\n * =========================================================================\n *\n *  HOW INPUTS WORK\n *  ---------------\n *  Every parameter of run() becomes an input port on this atom.\n *  Four types are supported:\n *\n *    number   -> numeric input / slider\n *    string   -> text input  (great for hex color codes, labels, etc.)\n *    boolean  -> true/false toggle\n *    Assembly -> geometry -- wire this to the output of another atom\n *\n *  Give a parameter a default value ( = x ) to make it optional.\n *  Mark it with ? (name?: Assembly) to make it optional with no default.\n *  Parameters without a default must be connected before the atom runs.\n *\n *  RETURN VALUE\n *  ------------\n *  Return an Assembly, an Assembly[], or a primitive (number/string/boolean).\n *  Returning an Assembly[] lets downstream atoms (BOM, cut layout...)\n *  see each piece independently.\n *\n *  GEOMETRY API  (replicad is available as a global)\n *  -------------------------------------------------\n *  Create 2-D sketches\n *    replicad.drawCircle(radius)\n *    replicad.drawRectangle(width, height)\n *    replicad.drawRoundedRectangle(width, height, cornerRadius)\n *\n *  Turn a 2-D sketch into a 3-D solid\n *    sketch.sketchOnPlane().extrude(distance)\n *    sketch.sketchOnPlane().revolve()          // rotate 360 deg around Z\n *\n *  Create 3-D primitives directly\n *    replicad.makeBaseBox(width, depth, height)\n *    replicad.makeSphere(radius)\n *    replicad.makeCylinder(radius, height)\n *\n *  Boolean operations\n *    solidA.fuse(solidB)                       // union\n *    solidA.cut(solidB)                        // difference (cut a hole)\n *    solidA.intersect(solidB)                  // intersection\n *\n *  Post-processing\n *    solid.fillet(radius)                      // round ALL edges\n *    solid.fillet(r, e => e.inPlane(\"XY\", z))  // round only top-face edges\n *    solid.chamfer(distance)                   // bevel ALL edges\n *    solid.translate(x, y, z)                  // move the solid\n *    solid.rotate(angle, [0, 0, 1])            // rotate around Z axis\n *\n *  ASSEMBLY CLASS\n *  --------------\n *  Wrap any replicad solid in an Assembly to attach display metadata:\n *    new Assembly({ geometry, color, tags, bom })\n *      geometry -> replicad solid / drawing returned by the API above\n *      color    -> hex string shown in the 3-D viewport  (\"#A3CE5B\")\n *      tags     -> string[] used for filtering in cut layout / BOM\n *      bom      -> string[] lines added to the Bill of Materials panel\n *\n *  AI PROMPT TIP\n *  -------------\n *  Copy the code in this editor into ChatGPT / Claude and say something like:\n *    \"Modify this Abundance Code Atom to create a gear with 12 teeth\"\n *    \"Change this to make a hexagonal nut instead of a round plate\"\n *  The comments above give the AI all the context it needs to produce\n *  valid, working Abundance TypeScript code.\n * =========================================================================\n */\n\n/**\n * A rectangular mounting plate with a circular hole in the centre.\n * All parameters have defaults so the atom produces geometry immediately\n * after creation — no connections required to get started.\n */\nfunction leftEdge(shape: Assembly): number {\n  let left: number|undefined = undefined;\n  shape.onLeafs((leaf) => {\n    const leafBounds = leaf.geometry.boundingBox.bounds\n    const leafLeft = leafBounds[0][0]\n    if (left == undefined || left > leafLeft) {\n      left = leafLeft;\n    }\n    return leaf;\n  });\n  if (left === undefined) {\n    return 0\n  }\n  return left;\n}\n\nfunction run(basis: Assembly, toMove: Assembly) {\n  const basisLeft = leftEdge(basis);\n  const toMoveLeft = leftEdge(toMove);\n  console.log(`basis left: ${basisLeft}, toMove left edge at: ${toMoveLeft}. Moving: ${basisLeft - toMoveLeft}`)\n  return toMove.onLeafs((leaf) => {\n    leaf.geometry = leaf.geometry.clone().translate(basisLeft - toMoveLeft, 0, 0)\n    return leaf;\n  })\n}\n",
-          "compiledCode": "\"use strict\";\n/**\n * =========================================================================\n *  ABUNDANCE CODE ATOM — Quick Reference\n * =========================================================================\n *\n *  HOW INPUTS WORK\n *  ---------------\n *  Every parameter of run() becomes an input port on this atom.\n *  Four types are supported:\n *\n *    number   -> numeric input / slider\n *    string   -> text input  (great for hex color codes, labels, etc.)\n *    boolean  -> true/false toggle\n *    Assembly -> geometry -- wire this to the output of another atom\n *\n *  Give a parameter a default value ( = x ) to make it optional.\n *  Mark it with ? (name?: Assembly) to make it optional with no default.\n *  Parameters without a default must be connected before the atom runs.\n *\n *  RETURN VALUE\n *  ------------\n *  Return an Assembly, an Assembly[], or a primitive (number/string/boolean).\n *  Returning an Assembly[] lets downstream atoms (BOM, cut layout...)\n *  see each piece independently.\n *\n *  GEOMETRY API  (replicad is available as a global)\n *  -------------------------------------------------\n *  Create 2-D sketches\n *    replicad.drawCircle(radius)\n *    replicad.drawRectangle(width, height)\n *    replicad.drawRoundedRectangle(width, height, cornerRadius)\n *\n *  Turn a 2-D sketch into a 3-D solid\n *    sketch.sketchOnPlane().extrude(distance)\n *    sketch.sketchOnPlane().revolve()          // rotate 360 deg around Z\n *\n *  Create 3-D primitives directly\n *    replicad.makeBaseBox(width, depth, height)\n *    replicad.makeSphere(radius)\n *    replicad.makeCylinder(radius, height)\n *\n *  Boolean operations\n *    solidA.fuse(solidB)                       // union\n *    solidA.cut(solidB)                        // difference (cut a hole)\n *    solidA.intersect(solidB)                  // intersection\n *\n *  Post-processing\n *    solid.fillet(radius)                      // round ALL edges\n *    solid.fillet(r, e => e.inPlane(\"XY\", z))  // round only top-face edges\n *    solid.chamfer(distance)                   // bevel ALL edges\n *    solid.translate(x, y, z)                  // move the solid\n *    solid.rotate(angle, [0, 0, 1])            // rotate around Z axis\n *\n *  ASSEMBLY CLASS\n *  --------------\n *  Wrap any replicad solid in an Assembly to attach display metadata:\n *    new Assembly({ geometry, color, tags, bom })\n *      geometry -> replicad solid / drawing returned by the API above\n *      color    -> hex string shown in the 3-D viewport  (\"#A3CE5B\")\n *      tags     -> string[] used for filtering in cut layout / BOM\n *      bom      -> string[] lines added to the Bill of Materials panel\n *\n *  AI PROMPT TIP\n *  -------------\n *  Copy the code in this editor into ChatGPT / Claude and say something like:\n *    \"Modify this Abundance Code Atom to create a gear with 12 teeth\"\n *    \"Change this to make a hexagonal nut instead of a round plate\"\n *  The comments above give the AI all the context it needs to produce\n *  valid, working Abundance TypeScript code.\n * =========================================================================\n */\n/**\n * A rectangular mounting plate with a circular hole in the centre.\n * All parameters have defaults so the atom produces geometry immediately\n * after creation — no connections required to get started.\n */\nfunction leftEdge(shape) {\n    let left = undefined;\n    shape.onLeafs((leaf) => {\n        const leafBounds = leaf.geometry.boundingBox.bounds;\n        const leafLeft = leafBounds[0][0];\n        if (left == undefined || left > leafLeft) {\n            left = leafLeft;\n        }\n        return leaf;\n    });\n    if (left === undefined) {\n        return 0;\n    }\n    return left;\n}\nfunction run(basis, toMove) {\n    const basisLeft = leftEdge(basis);\n    const toMoveLeft = leftEdge(toMove);\n    console.log(`basis left: ${basisLeft}, toMove left edge at: ${toMoveLeft}. Moving: ${basisLeft - toMoveLeft}`);\n    return toMove.onLeafs((leaf) => {\n        leaf.geometry = leaf.geometry.clone().translate(basisLeft - toMoveLeft, 0, 0);\n        return leaf;\n    });\n}\n"
-        },
-        {
           "atomType": "CutLayout",
           "x": 0.7447916666666666,
           "y": 0.4257142857142857,
@@ -3765,7 +3608,98 @@
               "ioValue": 4
             }
           ],
-          "placements": []
+          "placements": [
+            [
+              {
+                "id": 5,
+                "rotate": 90,
+                "translate": {
+                  "x": 5.400000000000002,
+                  "y": 12.025000000000004
+                }
+              },
+              {
+                "id": 4,
+                "rotate": 0,
+                "translate": {
+                  "x": 12.025000000000002,
+                  "y": 29.450000000000003
+                }
+              },
+              {
+                "id": 6,
+                "rotate": 90,
+                "translate": {
+                  "x": 16.200000000000003,
+                  "y": 12.100525986862918
+                }
+              },
+              {
+                "id": 3,
+                "rotate": 90,
+                "translate": {
+                  "x": 27.000000000000007,
+                  "y": 12.267754764468505
+                }
+              },
+              {
+                "id": 7,
+                "rotate": 270,
+                "translate": {
+                  "x": 29.450000000000003,
+                  "y": 28.679634105705208
+                }
+              },
+              {
+                "id": 2,
+                "rotate": 0,
+                "translate": {
+                  "x": 28.378092402777177,
+                  "y": 38.709268211410425
+                }
+              },
+              {
+                "id": 10,
+                "rotate": 90,
+                "translate": {
+                  "x": 5.3999999999999995,
+                  "y": 12.749718428146295
+                }
+              },
+              {
+                "id": 9,
+                "rotate": 0,
+                "translate": {
+                  "x": 60.411095686313814,
+                  "y": 18.65000000000001
+                }
+              },
+              {
+                "id": 13,
+                "rotate": 180,
+                "translate": {
+                  "x": 45.45157581097559,
+                  "y": 7.850000000000007
+                }
+              },
+              {
+                "id": 11,
+                "rotate": 0,
+                "translate": {
+                  "x": 46.55274350506962,
+                  "y": 38.709268211410425
+                }
+              },
+              {
+                "id": 12,
+                "rotate": 270,
+                "translate": {
+                  "x": 5.400000024949237,
+                  "y": 37.276233105582975
+                }
+              }
+            ]
+          ]
         },
         {
           "atomType": "Input",
@@ -3774,22 +3708,6 @@
           "uniqueID": "id-21224",
           "name": "StationPositions",
           "type": "array"
-        },
-        {
-          "atomType": "Difference",
-          "x": 0.48307291666666663,
-          "y": 0.1,
-          "uniqueID": "id-21389",
-          "ioValues": [
-            {
-              "name": "retain",
-              "ioValue": "__GEOMETRY_INPUT__"
-            },
-            {
-              "name": "remove",
-              "ioValue": "__GEOMETRY_INPUT__"
-            }
-          ]
         },
         {
           "atomType": "Molecule",
@@ -3868,7 +3786,7 @@
                 },
                 {
                   "name": "y length",
-                  "ioValue": 0.75,
+                  "ioValue": 10,
                   "currentEquation": "PlyThickness"
                 }
               ]
@@ -5810,14 +5728,18 @@
         },
         {
           "atomType": "Molecule",
-          "x": 0.16145833333333334,
-          "y": 0.3914285714285714,
+          "x": 0.3079427083333333,
+          "y": 0.21142857142857144,
           "uniqueID": "id-23372",
           "name": "FuseWithStem",
           "ioValues": [
             {
               "name": "HullForm",
               "ioValue": "__GEOMETRY_INPUT__"
+            },
+            {
+              "name": "StemWidth",
+              "ioValue": 10
             }
           ],
           "topLevel": false,
@@ -6206,6 +6128,13 @@
                 }
               ],
               "unionType": "Fusion"
+            },
+            {
+              "atomType": "Input",
+              "x": 0.025384615384615384,
+              "y": 0.3465934065934066,
+              "uniqueID": "id-23823",
+              "name": "StemWidth"
             }
           ],
           "allConnectors": [
@@ -6273,17 +6202,24 @@
               "ap2Name": "number or geometry",
               "ap1ID": "id-23818",
               "ap2ID": "id-23374"
+            },
+            {
+              "ap2Name": "y length",
+              "ap1ID": "id-23823",
+              "ap2ID": "id-23810"
             }
           ],
           "fileTypeVersion": 1
+        },
+        {
+          "atomType": "Input",
+          "x": 0.025384615384615384,
+          "y": 0.36,
+          "uniqueID": "id-5876",
+          "name": "PlyThickness"
         }
       ],
       "allConnectors": [
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-5827",
-          "ap2ID": "id-13259"
-        },
         {
           "ap2Name": "HullForm",
           "ap1ID": "id-5827",
@@ -6303,36 +6239,6 @@
           "ap2Name": "BoxWidth",
           "ap1ID": "id-11298",
           "ap2ID": "id-6592"
-        },
-        {
-          "ap2Name": "y length",
-          "ap1ID": "id-11298",
-          "ap2ID": "id-11300"
-        },
-        {
-          "ap2Name": "geometry",
-          "ap1ID": "id-11300",
-          "ap2ID": "id-11304"
-        },
-        {
-          "ap2Name": "Shape 1",
-          "ap1ID": "id-11304",
-          "ap2ID": "id-11314"
-        },
-        {
-          "ap2Name": "geometry2",
-          "ap1ID": "id-11314",
-          "ap2ID": "id-9267"
-        },
-        {
-          "ap2Name": "Shape 2",
-          "ap1ID": "id-13259",
-          "ap2ID": "id-11314"
-        },
-        {
-          "ap2Name": "remove",
-          "ap1ID": "id-13259",
-          "ap2ID": "id-21389"
         },
         {
           "ap2Name": "geometry",
@@ -6362,6 +6268,11 @@
         {
           "ap2Name": "geometry1",
           "ap1ID": "id-9275",
+          "ap2ID": "id-9267"
+        },
+        {
+          "ap2Name": "geometry2",
+          "ap1ID": "id-23372",
           "ap2ID": "id-9267"
         }
       ],
