@@ -102,6 +102,20 @@
       "name": "HullMaterialThickness"
     },
     {
+      "atomType": "Input",
+      "x": 0.025384615384615384,
+      "y": 0.5230769230769231,
+      "uniqueID": "id-25258",
+      "name": "Hull_Shape",
+      "type": "import",
+      "fileName": null,
+      "fileSha": null,
+      "fileType": null,
+      "repoOwner": null,
+      "repoName": null,
+      "SVGwidth": 10
+    },
+    {
       "atomType": "Molecule",
       "x": 0.20703125,
       "y": 0.13142857142857142,
@@ -5622,20 +5636,6 @@
         }
       ],
       "fileTypeVersion": 1
-    },
-    {
-      "atomType": "Input",
-      "x": 0.025384615384615384,
-      "y": 0.72,
-      "uniqueID": "id-25258",
-      "name": "Hull_Shape",
-      "type": "import",
-      "fileName": null,
-      "fileSha": null,
-      "fileType": null,
-      "repoOwner": null,
-      "repoName": null,
-      "SVGwidth": 10
     }
   ],
   "allConnectors": [
@@ -5647,6 +5647,11 @@
     {
       "ap2Name": "hullThickness",
       "ap1ID": "id-24571",
+      "ap2ID": "id-21144"
+    },
+    {
+      "ap2Name": "HullShape",
+      "ap1ID": "id-25258",
       "ap2ID": "id-21144"
     },
     {
@@ -5663,11 +5668,6 @@
       "ap2Name": "number or geometry",
       "ap1ID": "id-5823",
       "ap2ID": "id-997"
-    },
-    {
-      "ap2Name": "HullShape",
-      "ap1ID": "id-25258",
-      "ap2ID": "id-21144"
     }
   ],
   "unitsKey": "Inches",
