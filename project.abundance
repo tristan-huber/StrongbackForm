@@ -110,7 +110,7 @@
       "type": "import",
       "fileName": null,
       "fileSha": null,
-      "fileType": null,
+      "fileType": "STL",
       "repoOwner": null,
       "repoName": null,
       "SVGwidth": 10
